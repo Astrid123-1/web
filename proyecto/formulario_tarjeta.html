@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="radio"] {
+            width: auto;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Formulario de Pago</h2>
+    <form action="procesar_pago.php" method="POST">
+        <div class="form-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Correo Electronico</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="metodo_pago">Metodo de Pago</label>
+            <select id="metodo_pago" name="metodo_pago" required>
+                <option value="">Seleccione una opcion</option>
+                <option value="tarjeta_credito">Tarjeta de Credito</option>
+                <option value="paypal">PayPal</option>
+                <option value="transferencia_bancaria">Transferencia Bancaria</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="radio" name="tarjeta_tipo" value="visa" required> Visa
+            </label>
+            <label>
+                <input type="radio" name="tarjeta_tipo" value="mastercard" required> MasterCard
+            </label>
+            <label>
+                <input type="radio" name="tarjeta_tipo" value="amex" required> American Express
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="tarjeta_numero">Numero de Tarjeta</label>
+            <input type="text" id="tarjeta_numero" name="tarjeta_numero" required>
+        </div>
+        <div class="form-group">
+            <label for="tarjeta_fecha">Fecha de Expiracion</label>
+            <input type="text" id="tarjeta_fecha" name="tarjeta_fecha" placeholder="MM/AA" required>
+        </div>
+        <div class="form-group">
+            <label for="tarjeta_cvc">CVC</label>
+            <input type="text" id="tarjeta_cvc" name="tarjeta_cvc" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Pagar Ahora</button>
+			<button onClick="window.location.href='index.html'">Volver</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

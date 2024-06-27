@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Seleccion de Pago</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    .Estilo1 {color: #FFFFFF}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Seleccionar Metodo de Pago</h2>
+    <form id="mainForm">
+        <div class="form-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Correo Electronico</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="metodo_pago">Metodo de Pago</label>
+            <select id="metodo_pago" name="metodo_pago" required>
+                <option value="">Seleccione una opcion</option>
+                <option value="efectivo">Efectivo</option>
+                <option value="tarjeta">Tarjeta de Credito</option>
+            </select>
+        </div>
+      <div class="form-group">
+            <button type="submit">Continuar</button>
+            <p><a href="../centro servicios.html"></a></p>
+            <table width="100%" height="38" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="center" bgcolor="#0066FF"><a href="../centro servicios.html">REGRESAR</a></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+      </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('mainForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const metodoPago = document.getElementById('metodo_pago').value;
+
+        if (metodoPago === 'tarjeta') {
+            window.location.href = 'formulario_tarjeta.html'; // Redirige al formulario de tarjeta
+        } else if (metodoPago === 'efectivo') {
+            window.location.href = 'pago_efectivo.html'; // Redirige a la p�gina de pago en efectivo
+        } else {
+            alert('Por favor, selecciona un m�todo de pago.');
+        }
+    });
+</script>
+</body>
+</html>
